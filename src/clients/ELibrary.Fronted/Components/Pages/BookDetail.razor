@@ -1,0 +1,22 @@
+﻿@page "/detail/{Title}&Id={Id}"
+
+<PageTitle>@Title</PageTitle>
+
+<MRow Class="d-flex justify-center align-center">
+    <BookDetailCard BookId="@Id"></BookDetailCard>
+</MRow>
+<MRow>
+    <MCard Height="100" Color="rgba(0, 0, 0, 0)"></MCard>
+</MRow>
+<MRow Class="d-flex justify-center align-center">
+    <CommentCard BookId="@Id"></CommentCard>
+</MRow>
+
+@code {
+#nullable disable
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Id { get; set; }
+}

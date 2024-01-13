@@ -1,0 +1,15 @@
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\bin\Debug\net8.0\ModuleDistributor.Dapr.deps.json
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\bin\Debug\net8.0\ModuleDistributor.Dapr.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\bin\Debug\net8.0\ModuleDistributor.Dapr.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\bin\Debug\net8.0\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\bin\Debug\net8.0\ModuleDistributor.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.csproj.CopyComplete
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\refint\ModuleDistributor.Dapr.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ModuleDistributor.Dapr.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr\obj\Debug\net8.0\ref\ModuleDistributor.Dapr.dll

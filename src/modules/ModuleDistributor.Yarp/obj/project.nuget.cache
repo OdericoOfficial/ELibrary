@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "pwLvpOqfgPRI6IKYtIr9L0VnHtR2FwIoAhYfs+M3znCbe2xDP9g4Hw3PRYaxKJ2yxbaZ6W7kuPzzvpAfRM2JEw==",
+  "success": true,
+  "projectFilePath": "D:\\aspdotnet\\ELibrary\\src\\modules\\ModuleDistributor.Yarp\\ModuleDistributor.Yarp.csproj",
+  "expectedPackageFiles": [
+    "D:\\NuGet\\packages\\system.io.hashing\\7.0.0\\system.io.hashing.7.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\yarp.reverseproxy\\2.1.0\\yarp.reverseproxy.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

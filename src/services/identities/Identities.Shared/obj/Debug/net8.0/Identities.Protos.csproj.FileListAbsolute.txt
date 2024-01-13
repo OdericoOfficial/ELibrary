@@ -1,0 +1,12 @@
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\bin\Debug\net8.0\Identities.Protos.deps.json
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\bin\Debug\net8.0\Identities.Protos.dll
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\bin\Debug\net8.0\Identities.Protos.pdb
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\Identities.Protos.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\Identities.Protos.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\Identities.Protos.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\Identities.Protos.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\Identities.Protos.dll
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\refint\Identities.Protos.dll
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\Identities.Protos.pdb
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\ref\Identities.Protos.dll
+D:\aspdotnet\ELibrary\src\services\identities\Identities.Protos\obj\Debug\net8.0\Identities.Protos.csproj.AssemblyReference.cache

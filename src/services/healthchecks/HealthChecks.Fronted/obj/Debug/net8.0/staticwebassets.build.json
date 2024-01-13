@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "WSBsOXKwr8Q+XVRzW1+3Jrq7gzH2pL+4LMkL6RE/xic=",
+  "Source": "HealthChecks.Fronted",
+  "BasePath": "_content/HealthChecks.Fronted",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

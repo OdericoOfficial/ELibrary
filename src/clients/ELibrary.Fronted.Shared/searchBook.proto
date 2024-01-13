@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+option csharp_namespace = "ELibrary.Protos";
+
+package elibrary;
+
+service SearchBook {
+	rpc GetBookOrderByTime (GetBookOrderByTimeRequest) returns (stream GetBookOrderByTimeResponse);
+	rpc GetBookOrderByScore (GetBookOrderByScoreRequest) returns (stream GetBookOrderByScoreResponse);
+	rpc GetBookOrderByPublishYear (GetBookOrderByPublishYearRequest) returns (stream GetBookOrderByPublishYearResponse);
+}
+
+message GetBookOrderByTimeRequest 
+{
+	bool IsDesc = 1;
+	string Title = 2;
+	string Language = 3;
+	string Classification = 4;
+	string Press = 5;
+	string Writer = 6;
+}
+
+message GetBookOrderByTimeResponse
+{
+	string Title = 1;
+	string Description = 2;
+	string Language = 3;
+	int32 Pages = 4;
+	int32 PublishYear = 5;
+	string Classification = 6;
+	string Press = 7;
+	string Writer = 8;
+	string UserName = 9;
+	string ImageUrl = 10;
+	string FileUrl = 11;
+}
+
+message GetBookOrderByScoreRequest
+{
+	bool IsDesc = 1;
+	string Title = 2;
+	string Language = 3;
+	string Classification = 4;
+	string Press = 5;
+	string Writer = 6;
+}
+
+message GetBookOrderByScoreResponse
+{
+	string Title = 1;
+	string Description = 2;
+	string Language = 3;
+	int32 Pages = 4;
+	int32 PublishYear = 5;
+	string Classification = 6;
+	string Press = 7;
+	string Writer = 8;
+	string UserName = 9;
+	string ImageUrl = 10;
+	string FileUrl = 11;
+}
+
+message GetBookOrderByPublishYearRequest
+{
+	bool IsDesc = 1;
+	string Title = 2;
+	string Language = 3;
+	string Classification = 4;
+	string Press = 5;
+	string Writer = 6;
+}
+
+message GetBookOrderByPublishYearResponse
+{
+	string Title = 1;
+	string Description = 2;
+	string Language = 3;
+	int32 Pages = 4;
+	int32 PublishYear = 5;
+	string Classification = 6;
+	string Press = 7;
+	string Writer = 8;
+	string UserName = 9;
+	string ImageUrl = 10;
+	string FileUrl = 11;
+}

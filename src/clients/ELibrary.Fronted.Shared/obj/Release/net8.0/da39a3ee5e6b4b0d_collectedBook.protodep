@@ -1,0 +1,3 @@
+obj\Release\net8.0/CollectedBook.cs \
+obj\Release\net8.0/CollectedBookGrpc.cs: D:/NuGet/packages/grpc.tools/2.59.0/build/native/include/google/protobuf/empty.proto\
+ collectedBook.proto

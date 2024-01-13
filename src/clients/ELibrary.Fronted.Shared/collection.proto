@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option csharp_namespace = "ELibrary.Protos";
+
+package elibrary;
+
+service Collection {
+	rpc UploadCollection (UploadCollectionRequest) returns (google.protobuf.Empty);
+	rpc UpdateCollection (UpdateCollectionRequest) returns (google.protobuf.Empty);
+	rpc DeleteCollection (DeleteCollectionRequest) returns (google.protobuf.Empty);
+	rpc GetCollection (GetCollectionRequest) returns (stream GetCollectionResponse);
+}
+
+message UploadCollectionRequest
+{
+	string UserId = 1;
+	string UserName = 2;
+	string Name = 3;
+	string Description = 4;
+}
+
+message UpdateCollectionRequest
+{
+	string Id = 1;
+	string UserId = 2;
+	string UserName = 3;
+	string Name = 4;
+	string Description = 5;
+}
+
+message DeleteCollectionRequest
+{
+	string Id = 1;
+}
+
+message GetCollectionRequest
+{
+	string UserId = 1;
+	int32 Skip = 2;
+	int32 Take = 3;
+}
+
+message GetCollectionResponse
+{
+	string Id = 1;
+	string Name = 2;
+	string Description = 3;
+}

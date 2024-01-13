@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Dapr.Client" Version="1.12.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.59.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.59.0" />
+    <PackageReference Include="Rougamo.Fody" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\ModuleDistributor.Dapr\ModuleDistributor.Dapr.csproj" />
+    <ProjectReference Include="..\..\..\modules\ModuleDistributor.Grpc\ModuleDistributor.Grpc.csproj" />
+    <ProjectReference Include="..\..\..\modules\ModuleDistributor.Logging\ModuleDistributor.Logging.csproj" />
+    <ProjectReference Include="..\ELibrary.EntityFrameworkCore\ELibrary.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\ELibrary.Protos\ELibrary.Protos.csproj" />
+  </ItemGroup>
+
+</Project>

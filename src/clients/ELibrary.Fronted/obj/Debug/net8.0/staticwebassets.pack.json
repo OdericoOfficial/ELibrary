@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\aspdotnet\\ELibrary\\src\\clients\\ELibrary.Fronted\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ELibrary.Fronted.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ELibrary.Fronted.props",
+      "PackagePath": "build\\ELibrary.Fronted.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ELibrary.Fronted.props",
+      "PackagePath": "buildMultiTargeting\\ELibrary.Fronted.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ELibrary.Fronted.props",
+      "PackagePath": "buildTransitive\\ELibrary.Fronted.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

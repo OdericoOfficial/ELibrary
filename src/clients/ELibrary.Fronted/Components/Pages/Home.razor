@@ -1,0 +1,25 @@
+﻿@page "/"
+@inject Authentication.AuthenticationClient Auth
+@inject NavigationManager Navigation
+@inject ILocalStorageService LocalStorage
+@layout AuthenticationLayout
+
+<PageTitle>Authentication</PageTitle>
+<MRow Class="d-flex justify-center align-center">
+    <TitleCard></TitleCard>
+</MRow>
+<MRow Class="d-flex justify-center align-center">
+     <AuthenticationCard></AuthenticationCard>
+</MRow>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var user = await LocalStorage.GetItemAsync<UserModel>("elibrary-info");
+            if (user is not null)
+                Navigation.NavigateTo("/search");
+        }
+    }
+}

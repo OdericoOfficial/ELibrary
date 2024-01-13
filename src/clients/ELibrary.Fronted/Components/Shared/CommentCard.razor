@@ -1,0 +1,113 @@
+﻿@inherits AuthorizedComponentBase
+@inject Comment.CommentClient Client
+@inject IPopupService PopupService
+@attribute [StreamRendering]
+
+<MCard MinWidth="@("1000px")" Class="d-flex justify-center align-center" Elevation="4">
+    <MCardTitle>
+        <MRow>
+            <MTextarea Clearable ClearIcon="mdi-close-circle" Label="Comment" @bind-Value="_value"></MTextarea>
+        </MRow>
+        <MRow>
+             <MButton XLarge Icon OnClick="OnClickAsync">
+                 <MIcon Color="blue-grey lighten-3">mdi-comment</MIcon>>
+             </MButton>
+         </MRow>
+    </MCardTitle>
+    <MCardText @ref="_card">
+        <MList>
+            @foreach (var item in _response)
+            {
+                <MListItem>
+                    <MListItemContent>
+                        <MCol>
+                            <MListItemTitle>@item.Response.UserName</MListItemTitle>
+                            <MListItemSubtitle>@item.Response.Description</MListItemSubtitle>
+                        </MCol>
+                        <MCol>
+                            @if (item.canDelete) {
+                                <MButton XLarge Icon OnClick="() => OnDeleteAsync(item.Response.Id)">
+                                     <MIcon Color="blue-grey lighten-3">mdi-delete-alert-outline</MIcon>>
+                                </MButton>
+                            }
+                         </MCol>
+                    </MListItemContent>
+                </MListItem>
+                <MDivider></MDivider>
+            }
+        </MList>
+        <MInfiniteScroll OnLoad="@OnLoadAsync" Manual Parent="@_card.Ref">
+        </MInfiniteScroll>
+    </MCardText>
+</MCard>
+
+ @code {
+    #nullable disable
+    [Parameter]
+    public string BookId { get; set; }
+
+    private string _value = "";
+    private MCardText _card;
+    private List<(GetCommentResponse Response, bool canDelete)> _response = new();
+
+    private async Task OnLoadAsync(InfiniteScrollLoadEventArgs args)
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            var temp = new List<(GetCommentResponse Response, bool canDelete)>();
+            var collections = Client.GetComment(new GetCommentRequest { BookId = BookId, Skip = _response.Count, Take = 10 }, Metadata);
+            await foreach (var item in collections.ResponseStream.ReadAllAsync())
+                temp.Add((item, item.UserId == User.UserId));
+
+            if (temp.Count == 0)
+                args.Status = InfiniteScrollLoadStatus.Ok;
+            else
+            {
+                _response.AddRange(temp);
+                args.Status = InfiniteScrollLoadStatus.Empty;
+            }
+
+            await PopupService.EnqueueSnackbarAsync("Load Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            args.Status = InfiniteScrollLoadStatus.Error;
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private async Task OnClickAsync()
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            if (string.IsNullOrWhiteSpace(_value))
+            {
+                await PopupService.EnqueueSnackbarAsync("Comment cannot be white space.", AlertTypes.Error);
+                return;
+            }
+
+            await Client.UploadCommentAsync(new UploadCommentRequest { BookId = BookId, UserId = User.UserId, UserName = User.UserName, Description = _value }, Metadata);
+            await PopupService.EnqueueSnackbarAsync("Comment Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private async Task OnDeleteAsync(string id)
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            await Client.DeleteCommentAsync(new DeleteCommentRequest { Id = id, BookId = BookId, UserId = User.UserId }, Metadata);
+            await PopupService.EnqueueSnackbarAsync("Delete Comment Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+﻿@if (_reval){
+    <SignInCard OnClick="() => _reval = false"></SignInCard>
+}else{
+    <RegisterCard OnClick="() => _reval = true"></RegisterCard>
+}
+
+@code {
+    private bool _reval = true;
+}

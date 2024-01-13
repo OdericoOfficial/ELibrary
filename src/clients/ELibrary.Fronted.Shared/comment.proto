@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option csharp_namespace = "ELibrary.Protos";
+
+package elibrary;
+
+service Comment {
+	rpc UploadComment (UploadCommentRequest) returns (google.protobuf.Empty);
+	rpc DeleteComment (DeleteCommentRequest) returns (google.protobuf.Empty);
+	rpc GetComment (GetCommentRequest) returns (stream GetCommentResponse);
+}
+
+message UploadCommentRequest
+{
+	string UserId = 1;
+	string UserName = 2;
+	string BookId = 3;
+	string Description = 4;
+}
+
+message DeleteCommentRequest
+{
+	string UserId = 1;
+	string BookId = 2;
+}
+
+message GetCommentRequest
+{
+	string BookId = 1;
+	int32 Skip = 2;
+	int32 Take = 3;
+}
+
+message GetCommentResponse
+{
+	string UserName = 1;
+	string Description = 2;
+}

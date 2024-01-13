@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option csharp_namespace = "ELibrary.Protos";
+
+package elibrary;
+
+service Book {
+	rpc UploadBook(UploadBookRequest) returns (google.protobuf.Empty);
+	rpc UpdateBook(UpdateBookRequest) returns (google.protobuf.Empty);
+	rpc DeleteBook(DeleteBookRequest) returns (google.protobuf.Empty);
+}
+
+message UploadBookRequest
+{
+	string Title = 1;
+	string Description = 2;
+	string Language = 3;
+	int32 Pages = 4;
+	int32 PublishYear = 5;
+	string Classification = 6;
+	string Press = 7;
+	string Writer = 8;
+	string UserId = 9;
+	string UserName = 10;
+	string ImageUrl = 11;
+	string FileUrl = 12;
+}
+
+message UpdateBookRequest
+{
+	string Id = 1;
+	string Title = 2;
+	string Description = 3;
+	string Language = 4;
+	int32 Pages = 5;
+	int32 PublishYear = 6;
+	string Classification = 7;
+	string Press = 8;
+	string Writer = 9;
+	string UserId = 10;
+	string UserName = 11;
+	string ImageUrl = 12;
+	string FileUrl = 13;
+}
+
+message DeleteBookRequest
+{
+	string Id = 1;
+}

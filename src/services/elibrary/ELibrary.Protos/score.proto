@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option csharp_namespace = "ELibrary.Protos";
+
+package elibrary;
+
+service Score {
+	rpc UploadScore (UploadScoreRequest) returns (google.protobuf.Empty);
+	rpc UpdateScore (UpdateScoreRequest) returns (google.protobuf.Empty);
+	rpc GetBookScore (GetBookScoreRequest) returns (GetBookScoreResponse);
+	rpc IsScore (IsScoreRequest) returns (IsScoreResponse);
+}
+
+message UploadScoreRequest
+{
+	string UserId = 1;
+	string BookId = 2;
+	double Value = 3;
+}
+
+message UpdateScoreRequest
+{
+	string UserId = 1;
+	string BookId = 2;
+	double Value = 3;
+}
+
+message GetBookScoreRequest
+{
+	string BookId = 1;
+}
+
+message GetBookScoreResponse
+{
+	int32 Count = 1;
+	double TotalScore = 2;
+}
+
+message IsScoreRequest
+{
+	string BookId = 1;
+	string UserId = 2;
+}
+
+message IsScoreResponse
+{
+	bool IsScore = 1;
+	double Value = 2;
+}

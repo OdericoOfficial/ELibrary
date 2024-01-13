@@ -1,0 +1,3 @@
+obj\Release\net8.0/Captcha.cs \
+obj\Release\net8.0/CaptchaGrpc.cs: D:/NuGet/packages/grpc.tools/2.59.0/build/native/include/google/protobuf/empty.proto\
+ captcha.proto

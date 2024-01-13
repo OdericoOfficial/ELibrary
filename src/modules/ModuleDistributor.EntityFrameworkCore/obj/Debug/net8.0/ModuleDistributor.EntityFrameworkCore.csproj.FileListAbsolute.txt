@@ -1,0 +1,15 @@
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\bin\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.deps.json
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\bin\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\bin\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\bin\Debug\net8.0\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\bin\Debug\net8.0\ModuleDistributor.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.csproj.CopyComplete
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\refint\ModuleDistributor.EntityFrameworkCore.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ModuleDistributor.EntityFrameworkCore.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.EntityFrameworkCore\obj\Debug\net8.0\ref\ModuleDistributor.EntityFrameworkCore.dll

@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option csharp_namespace = "ELibrary.Protos";
+
+package elibrary;
+
+service CollectedBook {
+	rpc UploadCollected (UploadCollectedRequest) returns (google.protobuf.Empty);
+	rpc DeleteCollected (DeleteCollectedRequest) returns (google.protobuf.Empty);
+	rpc GetCollectedBook (GetCollectedBookRequest) returns (stream GetCollectedBookResponse);
+	rpc IsCollected (IsCollectedRequest) returns (IsCollectedResponse);
+}
+
+message UploadCollectedRequest
+{
+	string CollectionId = 1;
+	string BookId = 2;
+	string UserId = 3;
+}
+
+message DeleteCollectedRequest
+{
+	string BookId = 1;
+	string UserId = 2;
+}
+
+message GetCollectedBookRequest
+{
+	string CollectionId = 1;
+}
+
+message GetCollectedBookResponse
+{
+	string BookId = 1;
+	string Title = 2;
+}
+
+message IsCollectedRequest
+{
+	string BookId = 1;
+	string UserId = 2;
+}
+
+message IsCollectedResponse
+{
+	bool IsCollected = 1;
+}

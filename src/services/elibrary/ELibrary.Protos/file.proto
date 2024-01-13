@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option csharp_namespace = "ELibrary.Protos";
+
+package elibrary;
+
+service File {
+	rpc Upload (stream UploadRequest) returns (UploadResponse);
+	rpc Download(DownloadRequest) returns (stream DownloadResponse);
+}
+
+message UploadRequest
+{
+	string FullFileName = 1;
+	bytes FileStream = 2;
+}
+
+message UploadResponse
+{
+	string FullFileName = 1;
+}
+
+message DownloadRequest
+{
+	string FullFileName = 1;
+}
+
+message DownloadResponse
+{
+	bytes FileStream = 2;
+}

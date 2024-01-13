@@ -1,0 +1,350 @@
+﻿@page "/upload"
+@using Google.Protobuf
+@inherits AuthorizedComponentBase
+@inject SearchBook.SearchBookClient Client
+@inject Book.BookClient BookClient
+@inject Protos.File.FileClient FileClient
+@inject NavigationManager Navigation
+@inject IMapper Mapper
+@inject IPopupService PopupService
+@attribute [StreamRendering]
+
+<PageTitle>Upload</PageTitle>
+<MCard MinWidth="@("1000px")" Class="d-flex justify-center align-center" Elevation="4">
+    <MDataIterator Items="_responses"
+                    ItemsPerPage="_itemsPerPage"
+                    Page="_page"
+                    ItemValues="_keys"
+                    HideDefaultFooter>
+        <HeaderContent>
+            <MToolbar Class="mb-2"
+                      Color="transparent"
+                      Dark
+                      Flat
+                      Elevation="0">
+                 <MButton Fab Color="cyan accent-2" Bottom Right Absolute OnClick="() => _value = !_value">
+                     <MIcon>mdi-plus</MIcon>
+                 </MButton>
+             </MToolbar>
+        </HeaderContent>
+        <ChildContent Context="props">
+            <MRow>
+                @foreach (var item in props.Items)
+                {
+                    <MCol @key="item.Title" Cols="12" Sm="6" Md="4" Lg="3">
+                        <MCard MinWidth="250">
+                            <MCardTitle Class="subheading font-weight-bold">@item.Title</MCardTitle>
+                            <MDivider></MDivider>
+                            <MCardText>
+                                <MList Dense>
+                                    <MListItem>
+                                        <MListItemContent>Description</MListItemContent>
+                                        <MListItemContent Class="@("align-end")">@item.Description</MListItemContent>
+                                    </MListItem>
+                                </MList>
+                            </MCardText>
+                            <MCardActions>
+                                <MButton Text Color="teal accent-4" OnClick="@(() => Navigation.NavigateTo($"/detail/{item.Title}&Id={item.Id}"))">More Detail</MButton>
+                                <MSpacer></MSpacer>
+                                <MButton Text Color="teal accent-4" OnClick="() => DeleteAsync(item.Id)">Delete</MButton>
+                            </MCardActions>
+                        </MCard>
+                    </MCol>
+                }
+            </MRow>
+        </ChildContent>
+        <FooterContent>
+            <MRow Class="mt-2"
+                  Align="@("center")"
+                  Justify="@("center")">
+                <span class="grey--text">Items per page</span>
+                <MMenu OffsetY>
+                    <ActivatorContent>
+                        <MButton Dark
+                                 Text
+                                  Color="primary"
+                                  Class="ml-2"
+                                  @attributes="@context.Attrs">
+                             @_itemsPerPage
+                            <MIcon>mdi-chevron-down</MIcon>
+                        </MButton>
+                    </ActivatorContent>
+                    <ChildContent>
+                        <MList>
+                            @for (var i = 0; i < _itemsPerPageArray.Count; i++)
+                            {
+                                var index = i;
+                                var number = _itemsPerPageArray[i];
+                                <MListItem @key="index"
+                                           OnClick="() => _itemsPerPage = number">
+                                    <MListItemTitle>@number</MListItemTitle>
+                                </MListItem>
+                            }
+                        </MList>
+                    </ChildContent>
+                </MMenu>
+                <MSpacer></MSpacer>
+                <span class="mr-4 grey--text">
+                    Page @_page of @_numberOfPages
+                </span>
+                <MButton Fab
+                          Dark
+                          Color="blue darken-3"
+                          Class="mr-1"
+                          OnClick="FormerPage">
+                     <MIcon>mdi-chevron-left</MIcon>
+                 </MButton>
+                 <MButton Fab
+                          Dark
+                          Color="blue darken-3"
+                          Class="ml-1"
+                          OnClick="NextPage">
+                     <MIcon>mdi-chevron-right</MIcon>
+                 </MButton>
+             </MRow>
+         </FooterContent>
+     </MDataIterator>
+</MCard>
+<MDialog @bind-Value="_value" Width="800">
+    <ChildContent>
+        <MCard>
+            <MForm EnableValidation Model="_model" OnValidSubmit="HandleOnSaveAsync">
+                <MCardText>
+                    <MRow>
+                        <MCol Cols="12">
+                            <MTextField @bind-Value="_model.Title"
+                                        Label="Title"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                        <MCol Cols="12">
+                            <MTextarea @bind-Value="_model.Description"
+                                        Label="Description"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                    </MRow>
+                    <MRow>
+                        <MCol Cols="12">
+                            <MTextField @bind-Value="_model.Language"
+                                        Label="Language"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                        <MCol Cols="12">
+                            <MTextField @bind-Value="_model.Pages"
+                                        Label="Pages"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                    </MRow>
+                    <MRow>
+                        <MCol Cols="12">
+                            <MTextField @bind-Value="_model.PublishYear"
+                                        Label="PublishYear"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                        <MCol Cols="12">
+                            <MTextField @bind-Value="_model.Classification"
+                                        Label="Classification"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                    </MRow>
+                    <MRow>
+                        <MCol Cols="12">
+                            <MTextField @bind-Value="_model.Press"
+                                        Label="Press"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                        <MCol Cols="12">
+                            <MTextField @bind-Value="_model.Writer"
+                                        Label="Writer"
+                                        Dense
+                                        Outlined
+                                        HideDetails="@("auto")" />
+                        </MCol>
+                    </MRow>
+                    <MRow>
+                        <MFileInput @bind-Value="_model.File"
+                                    Label="Upload your documents"
+                                    PrependIcon="mdi-paperclip" />
+                    </MRow>
+                    <MRow>
+                        <MFileInput @bind-Value="_model.Image"
+                                    Label="Upload your cover"
+                                    PrependIcon="mdi-paperclip" />
+                    </MRow>
+                </MCardText>
+                <MCardActions>
+                    <MButton Color="primary" Text Type="submit">Add</MButton>
+                    <MSpacer></MSpacer>
+                    <MButton Color="primary" Text OnClick="() => _value = !_value">Close</MButton>
+                </MCardActions>
+            </MForm>
+        </MCard>
+    </ChildContent>
+</MDialog>
+
+ @code {
+    #nullable disable
+    public class UploadBookModel
+    {
+        [Required]
+        public string Title { get; set; }
+        [Required]
+        public string Description { get; set; }
+        [Required]
+        public string Language { get; set; }
+        [Required]
+        public int Pages { get; set; }
+        [Required]
+        public int PublishYear { get; set; }
+        [Required]
+        public string Classification { get; set; }
+        [Required]
+        public string Press { get; set; }
+        [Required]
+        public string Writer { get; set; }
+        [Required]
+        public IBrowserFile File { get; set; }
+        [Required]
+        public IBrowserFile Image { get; set; } 
+    }
+
+    private UploadBookModel _model = new();
+    private List<BookModel> _responses = new();
+    private List<int> _itemsPerPageArray = new List<int> { 4, 8, 12 };
+    private List<ItemValue<BookModel>> _keys => new List<ItemValue<BookModel>> { "Title", "Description" };
+    private int _itemsPerPage = 4;
+    private int _page = 1;
+    private int _numberOfPages => Convert.ToInt32(Math.Ceiling(_responses.Count / (_itemsPerPage * 1.0)));
+    private bool _value = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                (var User, var Metadata) = await GetInfoAsync();
+                await foreach (var item in Client.GetBookOrderByUser(new GetBookByUserRequest { UserId = User.UserId }, Metadata).ResponseStream.ReadAllAsync())
+                {
+                    var response = Mapper.Map<GetBookResponse, BookModel>(item);
+                    _responses.Add(response);
+                }
+
+                StateHasChanged();
+                await PopupService.EnqueueSnackbarAsync("Get books finish.", AlertTypes.Success);
+            }
+            catch (Exception ex)
+            {
+                await PopupService.EnqueueSnackbarAsync(ex);
+            }
+        }
+    }
+
+    private void NextPage()
+    {
+        if (_page + 1 <= _numberOfPages)
+            _page += 1;
+    }
+
+    private void FormerPage()
+    {
+        if (_page - 1 >= 1)
+            _page -= 1;
+    }
+
+    private async Task HandleOnSaveAsync()
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            using var file = _model.File.OpenReadStream();
+            using var image = _model.Image.OpenReadStream();
+            var clientFile = FileClient.Upload(Metadata);
+            var clientImage = FileClient.Upload(Metadata);
+
+            var sended = 0L;
+            var totalLength = file.Length;
+            var buffer = new byte[1024 * 1024];
+            while (sended < totalLength)
+            {
+                var length = await file.ReadAsync(buffer);
+                sended += length;
+                var request = new UploadRequest
+                {
+                    FileStream = ByteString.CopyFrom(buffer),
+                    FullFileName = _model.File.Name
+                };
+                await clientFile.RequestStream.WriteAsync(request);
+            }
+            await clientFile.RequestStream.CompleteAsync();
+
+            sended = 0L;
+            totalLength = image.Length;
+            while (sended < totalLength)
+            {
+                var length = await image.ReadAsync(buffer);
+                sended += length;
+                var request = new UploadRequest
+                    {
+                        FileStream = ByteString.CopyFrom(buffer),
+                        FullFileName = _model.Image.Name
+                    };
+                await clientImage.RequestStream.WriteAsync(request);
+            }
+            await clientImage.RequestStream.CompleteAsync();
+
+            var imageName = (await clientImage.ResponseAsync).FullFileName;
+            var fileName = (await clientFile.ResponseAsync).FullFileName;
+
+            await BookClient.UploadBookAsync(new UploadBookRequest
+            {
+                Title = _model.Title,
+                Description = _model.Description,
+                Language = _model.Language,
+                Pages = _model.Pages,
+                PublishYear = _model.PublishYear,
+                Classification = _model.Classification,
+                Press = _model.Press,
+                Writer = _model.Writer,
+                UserId = User.UserId,
+                UserName = User.UserName,
+                ImageUrl = imageName,
+                FileUrl = fileName
+            }, Metadata);
+
+            await PopupService.EnqueueSnackbarAsync("Upload Success", AlertTypes.Success);
+            _value = false;
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private async Task DeleteAsync(string id)
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            await BookClient.DeleteBookAsync(new DeleteBookRequest { Id = id }, Metadata);
+            await PopupService.EnqueueSnackbarAsync("Delete Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+}

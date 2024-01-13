@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "Identities.Protos";
+
+package authentication;
+
+import "google/protobuf/empty.proto";
+
+service Captcha {
+	rpc SendEmail (EmailCaptchRequest) returns (google.protobuf.Empty);
+}
+
+message EmailCaptchRequest
+{
+	string Receiver = 1;
+}

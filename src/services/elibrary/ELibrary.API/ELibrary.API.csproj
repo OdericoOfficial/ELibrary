@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>1ba7ba92-6b84-4723-a272-b971e69e836c</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="7.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.59.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.59.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Rougamo.Fody" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\ModuleDistributor.Dapr.GrpcHealthChecks\ModuleDistributor.Dapr.GrpcHealthChecks.csproj" />
+    <ProjectReference Include="..\..\..\modules\ModuleDistributor.Dapr.HealthCheck\ModuleDistributor.Dapr.HealthCheck.csproj" />
+    <ProjectReference Include="..\..\..\modules\ModuleDistributor.Logging\ModuleDistributor.Logging.csproj" />
+    <ProjectReference Include="..\..\..\modules\ModuleDistributor.Serilog\ModuleDistributor.Serilog.csproj" />
+    <ProjectReference Include="..\ELibrary.Services\ELibrary.Services.csproj" />
+  </ItemGroup>
+
+</Project>

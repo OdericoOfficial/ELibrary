@@ -1,0 +1,17 @@
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\bin\Debug\net8.0\ModuleDistributor.Dapr.Configuration.deps.json
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\bin\Debug\net8.0\ModuleDistributor.Dapr.Configuration.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\bin\Debug\net8.0\ModuleDistributor.Dapr.Configuration.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\bin\Debug\net8.0\ModuleDistributor.Dapr.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\bin\Debug\net8.0\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\bin\Debug\net8.0\ModuleDistributor.Dapr.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\bin\Debug\net8.0\ModuleDistributor.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.csproj.CopyComplete
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\refint\ModuleDistributor.Dapr.Configuration.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ModuleDistributor.Dapr.Configuration.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Dapr.Configuration\obj\Debug\net8.0\ref\ModuleDistributor.Dapr.Configuration.dll

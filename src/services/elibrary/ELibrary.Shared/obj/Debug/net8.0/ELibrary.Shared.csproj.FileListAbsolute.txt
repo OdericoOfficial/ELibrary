@@ -1,0 +1,15 @@
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\bin\Debug\net8.0\ELibrary.Shared.deps.json
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\bin\Debug\net8.0\ELibrary.Shared.dll
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\bin\Debug\net8.0\ELibrary.Shared.pdb
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\bin\Debug\net8.0\Identities.Shared.dll
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\bin\Debug\net8.0\Identities.Shared.pdb
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.csproj.CopyComplete
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.dll
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\refint\ELibrary.Shared.dll
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ELibrary.Shared.pdb
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Shared\obj\Debug\net8.0\ref\ELibrary.Shared.dll

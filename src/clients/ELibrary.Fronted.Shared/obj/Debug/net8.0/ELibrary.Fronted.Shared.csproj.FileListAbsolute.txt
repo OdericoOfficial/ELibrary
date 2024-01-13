@@ -1,0 +1,12 @@
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\bin\Debug\net8.0\ELibrary.Fronted.Shared.deps.json
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\bin\Debug\net8.0\ELibrary.Fronted.Shared.dll
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\bin\Debug\net8.0\ELibrary.Fronted.Shared.pdb
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ELibrary.Fronted.Shared.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ELibrary.Fronted.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ELibrary.Fronted.Shared.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ELibrary.Fronted.Shared.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ELibrary.Fronted.Shared.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ELibrary.Fronted.Shared.dll
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\refint\ELibrary.Fronted.Shared.dll
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ELibrary.Fronted.Shared.pdb
+D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted.Shared\obj\Debug\net8.0\ref\ELibrary.Fronted.Shared.dll

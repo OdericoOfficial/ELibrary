@@ -1,0 +1,11 @@
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\bin\Debug\net8.0\ModuleDistributor.deps.json
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\bin\Debug\net8.0\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\bin\Debug\net8.0\ModuleDistributor.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\ModuleDistributor.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\ModuleDistributor.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\ModuleDistributor.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\ModuleDistributor.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\refint\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\ModuleDistributor.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor\obj\Debug\net8.0\ref\ModuleDistributor.dll

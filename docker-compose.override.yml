@@ -1,0 +1,121 @@
+version: '3.4'
+
+services:
+  redis:
+    ports:
+      - "5379:6379"
+
+  zipkin:
+    ports:
+      - "5411:9411"
+
+  sqlserver:
+    volumes:
+      - sqlserver:/var/opt/mssql
+    environment:
+      - SA_PASSWORD=JWmTjvNnRfKcjvLo0r
+      - ACCEPT_EULA=Y
+    ports:
+      - 1433:1433
+      
+  seq:
+    restart: unless-stopped
+    ports:
+      - "5341:80"
+    environment:
+      - ACCEPT_EULA=Y
+
+  elibrary-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - DaprOptions__SecretStore=secretstore 
+      - DaprOptions__StateStore=statestore
+      - DaprOptions__PubSub=pubsub
+    ports:
+      - "5002:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  elibrary-api-dapr:
+    command: ["./daprd",
+      "-app-id", "elibrary-api",
+      "-app-port", "80",
+      "-components-path", "/components",
+      "-config", "/configuration/dapr-config.yaml"
+      ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+
+  identities-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - DaprOptions__SecretStore=secretstore 
+      - DaprOptions__StateStore=statestore
+      - DaprOptions__PubSub=pubsub
+    ports:
+      - "5004:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  identities-api-dapr:
+    command: ["./daprd",
+      "-app-id", "identities-api",
+      "-app-port", "80",
+      "-components-path", "/components",
+      "-config", "/configuration/dapr-config.yaml"
+      ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+
+  healthchecks-fronted:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - DaprOptions__SecretStore=secretstore 
+      - DaprOptions__StateStore=statestore
+      - DaprOptions__PubSub=pubsub
+    ports:
+      - "5005:80"
+
+  healthchecks-fronted-dapr:
+    command: ["./daprd",
+      "-app-id", "healthchecks-fronted",
+      "-app-port", "80",
+      "-components-path", "/components",
+      "-config", "/configuration/dapr-config.yaml"
+      ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+
+  elibrary-fronted:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - DaprOptions__SecretStore=secretstore 
+      - DaprOptions__StateStore=statestore
+      - DaprOptions__PubSub=pubsub
+    ports:
+      - "5101:80"
+
+  elibrary-fronted-dapr:
+    command: ["./daprd",
+      "-app-id", "elibrary-fronted",
+      "-app-port", "80",
+      "-components-path", "/components",
+      "-config", "/configuration/dapr-config.yaml"
+      ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+
+volumes:
+  sqlserver:
+    external: false
+

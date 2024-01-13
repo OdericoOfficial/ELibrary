@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "/VcIrIYxDsAuFL38e/4qxnGG/0KYmVkm/i3lp+jQoik9h/9xOg/nk0sIwZOy5548Ly716f6gRL6YRgHLaYeBhQ==",
+  "success": true,
+  "projectFilePath": "D:\\aspdotnet\\ELibrary\\src\\modules\\ModuleDistributor.Dapr.GrpcHealthChecks\\ModuleDistributor.Dapr.GrpcHealthChecks.csproj",
+  "expectedPackageFiles": [
+    "D:\\NuGet\\packages\\google.protobuf\\3.23.1\\google.protobuf.3.23.1.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.aspnetcore.healthchecks\\2.59.0\\grpc.aspnetcore.healthchecks.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.aspnetcore.server\\2.59.0\\grpc.aspnetcore.server.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.core.api\\2.59.0\\grpc.core.api.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.healthcheck\\2.59.0\\grpc.healthcheck.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.net.common\\2.59.0\\grpc.net.common.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\system.threading.channels\\4.6.0\\system.threading.channels.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

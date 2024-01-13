@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "t84am/ElgkuwUfdGWz9yf/1MZKs8iTO169M1O1TNoT+yi4mw4L8emh3KEnEodmEWCwtFUwnlfPBksqy8Yv1pfA==",
+  "success": true,
+  "projectFilePath": "D:\\aspdotnet\\ELibrary\\src\\clients\\ELibrary.Fronted.Shared\\ELibrary.Fronted.Shared.csproj",
+  "expectedPackageFiles": [
+    "D:\\NuGet\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.core.api\\2.59.0\\grpc.core.api.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.net.client\\2.59.0\\grpc.net.client.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.net.client.web\\2.59.0\\grpc.net.client.web.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.net.common\\2.59.0\\grpc.net.common.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.tools\\2.59.0\\grpc.tools.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

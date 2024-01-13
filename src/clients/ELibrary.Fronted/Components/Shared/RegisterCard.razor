@@ -1,0 +1,58 @@
+﻿@inject Authentication.AuthenticationClient Client
+@inject IMapper Mapper
+@inject IPopupService PopupService
+@attribute [StreamRendering]
+
+<MCard MinWidth="@("480px")">
+    <MCardTitle>Register</MCardTitle>
+    <MForm Model="_model"
+           EnableValidation
+            OnValidSubmit="HandleOnValidSubmitAsync">
+         <MCardText>
+             <MTextField @bind-Value="_model.UserName"
+                         Label="Name"></MTextField>
+             <MTextField @bind-Value="_model.Password"
+                         Label="Password"></MTextField>
+             <MTextField @bind-Value="_model.Email"
+                         Label="E-Mail"></MTextField>
+         </MCardText>
+         <MCardActions>
+             <MButton Text Color="teal accent-4" Type="submit">Register</MButton>
+             <MSpacer></MSpacer>
+             <MButton Text Color="teal accent-4" OnClick="OnClick">To SignIn</MButton>
+         </MCardActions>
+     </MForm>
+ </MCard>
+
+ @code {
+    #nullable disable
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    public class RegisterModel
+    {
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
+        public string Email { get; set; }
+    }
+
+    private RegisterModel _model = new RegisterModel();
+
+    private async Task HandleOnValidSubmitAsync()
+    {
+        try
+        {
+            var request = Mapper.Map<RegisterModel, RegisterNoCaptchaRequest>(_model);
+            var response = await Client.RegisterNoCaptchaAsync(request);
+            await PopupService.EnqueueSnackbarAsync("Register Success.", AlertTypes.Success);
+            await OnClick.InvokeAsync();
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "MEg6NaRSFqb8jQPp1twEXU4BbACZXnhX9/zBZC+KqnnMSeDwIZvLzKzadJUcND+Z7mk2MaaLCniQ/z96EMa2Sw==",
+  "success": true,
+  "projectFilePath": "D:\\aspdotnet\\ELibrary\\src\\services\\healthchecks\\HealthChecks.Fronted.Shared\\HealthChecks.Fronted.Shared.csproj",
+  "expectedPackageFiles": [
+    "D:\\NuGet\\packages\\google.protobuf\\3.23.1\\google.protobuf.3.23.1.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.aspnetcore.healthchecks\\2.59.0\\grpc.aspnetcore.healthchecks.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.aspnetcore.server\\2.59.0\\grpc.aspnetcore.server.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.core.api\\2.59.0\\grpc.core.api.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.healthcheck\\2.59.0\\grpc.healthcheck.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.net.client\\2.59.0\\grpc.net.client.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\grpc.net.common\\2.59.0\\grpc.net.common.2.59.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.diagnostics.abstractions\\8.0.0\\microsoft.extensions.diagnostics.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.diagnostics.healthchecks\\8.0.0\\microsoft.extensions.diagnostics.healthchecks.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.diagnostics.healthchecks.abstractions\\8.0.0\\microsoft.extensions.diagnostics.healthchecks.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.fileproviders.abstractions\\8.0.0\\microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.hosting.abstractions\\8.0.0\\microsoft.extensions.hosting.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
+    "D:\\NuGet\\packages\\system.threading.channels\\4.6.0\\system.threading.channels.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

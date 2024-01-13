@@ -1,0 +1,2 @@
+obj\Release\net8.0/SearchBook.cs \
+obj\Release\net8.0/SearchBookGrpc.cs: searchBook.proto

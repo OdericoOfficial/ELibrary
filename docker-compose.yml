@@ -1,0 +1,89 @@
+version: '3.4'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+  
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+
+  zipkin:
+    image: openzipkin/zipkin-slim:latest
+    container_name: zipkin
+
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+
+  elibrary-api:
+    image: ${DOCKER_REGISTRY-}elibraryapi
+    container_name: elibrary-api
+    build:
+      context: .
+      dockerfile: src/services/elibrary/ELibrary.API/Dockerfile
+    depends_on:
+      - sqlserver
+      - redis
+      - seq
+
+  elibrary-api-dapr:
+    image: daprio/daprd:latest
+    container_name: elibrary-api-dapr
+    network_mode: "service:elibrary-api"
+    depends_on:
+      - elibrary-api
+
+  identities-api:
+    image: ${DOCKER_REGISTRY-}identitiesapi
+    container_name: identities-api
+    build:
+      context: .
+      dockerfile: src/services/identities/Identities.API/Dockerfile
+    depends_on:
+      - sqlserver
+      - redis
+      - seq
+
+  identities-api-dapr:
+    image: daprio/daprd:latest
+    container_name: identities-api-dapr
+    network_mode: "service:identities-api"
+    depends_on:
+      - identities-api
+
+  healthchecks-fronted:
+    image: ${DOCKER_REGISTRY-}healthchecksfronted
+    container_name: healthchecks-fronted
+    build:
+      context: .
+      dockerfile: src/services/healthchecks/HealthChecks.Fronted/Dockerfile
+    depends_on:
+      - identities-api
+      - elibrary-api
+      - elibrary-fronted
+
+  healthchecks-fronted-dapr:
+    image: daprio/daprd:latest
+    container_name: healthchecks-fronted-dapr
+    network_mode: "service:healthchecks-fronted"
+    depends_on:
+      - healthchecks-fronted
+
+  elibrary-fronted:
+    image: ${DOCKER_REGISTRY-}elibraryfronted
+    container_name: elibrary-fronted
+    build:
+      context: .
+      dockerfile: src/clients/ELibrary.Fronted/Dockerfile
+    depends_on:
+      - identities-api
+      - elibrary-api
+
+  elibrary-fronted-dapr:
+    image: daprio/daprd:latest
+    container_name: elibrary-fronted-dapr
+    network_mode: "service:elibrary-fronted"
+    depends_on:
+      - elibrary-fronted

@@ -1,0 +1,12 @@
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\bin\Debug\net8.0\ELibrary.Protos.deps.json
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\bin\Debug\net8.0\ELibrary.Protos.dll
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\bin\Debug\net8.0\ELibrary.Protos.pdb
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ELibrary.Protos.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ELibrary.Protos.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ELibrary.Protos.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ELibrary.Protos.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ELibrary.Protos.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ELibrary.Protos.dll
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\refint\ELibrary.Protos.dll
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ELibrary.Protos.pdb
+D:\aspdotnet\ELibrary\src\services\elibrary\ELibrary.Protos\obj\Debug\net8.0\ref\ELibrary.Protos.dll

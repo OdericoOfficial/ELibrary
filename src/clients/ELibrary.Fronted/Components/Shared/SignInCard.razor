@@ -1,0 +1,67 @@
+﻿@inject Authentication.AuthenticationClient Client
+@inject IMapper Mapper
+@inject NavigationManager Navigation
+@inject IPopupService PopupService
+@inject ILocalStorageService LocalStorage
+@attribute [StreamRendering]
+
+<MCard MinWidth="@("480px")">
+    <MCardTitle>SignIn</MCardTitle>
+    <MForm Model="_model"
+            EnableValidation
+            OnValidSubmit="HandleOnValidSubmitAsync">
+         <MCardText>
+             <MTextField @bind-Value="_model.Email" 
+                         Label="E-mail"></MTextField>
+             <MTextField @bind-Value="_model.Password"
+                         Label="Password"></MTextField>
+         </MCardText>
+         <MCardActions>
+             <MButton Text Color="teal accent-4" Type="submit">SignIn</MButton>
+             <MSpacer></MSpacer>
+             <MButton Text Color="teal accent-4" OnClick="OnClick">To Register</MButton>
+         </MCardActions>
+     </MForm>
+</MCard>
+
+@code {
+    #nullable disable
+    [Parameter]
+    public StringBoolean Reveal { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    public class SignInModel
+    {
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
+    }
+
+    public class UserModel
+    {
+        public string AccessToken { get; set; }
+        public string UserName { get; set; }
+        public string UserId { get; set; }
+    }
+
+    private SignInModel _model = new SignInModel();
+
+    private async Task HandleOnValidSubmitAsync()
+    {
+        try
+        {
+            var request = Mapper.Map<SignInModel, SignInRequest>(_model);
+            var response = await Client.SignInAsync(request);
+            var user = Mapper.Map<SignInResponse, UserModel>(response);
+            await LocalStorage.SetItemAsync("elibrary-info", user);
+            Navigation.NavigateTo("/search");
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+}

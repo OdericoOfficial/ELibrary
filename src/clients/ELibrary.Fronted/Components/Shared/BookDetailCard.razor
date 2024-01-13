@@ -1,0 +1,205 @@
+﻿@inherits AuthorizedComponentBase
+@inject SearchBook.SearchBookClient SearchBookClient
+@inject Score.ScoreClient ScoreClient
+@inject CollectedBook.CollectedBookClient CollectedBookClient
+@inject Protos.File.FileClient FileClient
+@inject IPopupService PopupService
+@inject IBlazorDownloadFileService FileService
+@attribute [StreamRendering]
+
+<MCard MinWidth="@("1100px")" Class="d-flex justify-center align-center" Elevation="4">
+    <MCardTitle Class="mx-auto elevation-20">
+        <MRow Justify="JustifyTypes.SpaceBetween">
+            <MAvatar Class="shrink ma-2" Color="grey darken-1" Style="flex-basis: 125px"></MAvatar>
+            <div>
+                <div class="text-h5">@_response?.Title</div>
+                <div>(@_response?.PublishYear)</div>
+            </div>
+        </MRow>
+    </MCardTitle>
+    <MCardText>
+        <MList Dense>
+            <MListItem>
+                <MListItemContent>Description: @_response?.Description</MListItemContent>
+            </MListItem>
+            <MDivider Dark></MDivider>
+            <MListItem>
+                <MCol>
+                     <MListItemContent>Classification: @_response?.Classification</MListItemContent>
+                </MCol>
+                <MCol>
+                     <MListItemContent>Press: @_response?.Press</MListItemContent>
+                </MCol>
+            </MListItem>
+                <MListItem>
+                    <MCol>
+                        <MListItemContent>Author: @_response?.Writer</MListItemContent>
+                    </MCol>
+                    <MCol>
+                        <MListItemContent>Language: @_response?.Language</MListItemContent>
+                    </MCol>
+                </MListItem>
+                <MListItem>
+                    <MCol>
+                        <MListItemContent>Pages: @_response?.Pages</MListItemContent>
+                    </MCol>
+                    @if (_response?.FileUrl is not null){
+                        <MCol>
+                            <MListItemContent>
+                                <MButton Text Color="teal accent-4" OnClick="DownloadAsync">Download</MButton>
+                            </MListItemContent>
+                        </MCol>
+                    }
+                </MListItem>
+        </MList>
+    </MCardText>
+    <MDivider Dark></MDivider>
+    <MCardActions Class="pa-4">
+        <MRow>
+            Rate this book
+            <MSpacer></MSpacer>
+            <span class="grey--text text--lighten-2 text-caption mr-2">(Total: @string.Format("{0:F1}", _totalRating); You: @(_isRating ? string.Format("{0:F1}", _rating) : ""))</span>
+            <MRating Value="_rating.AsT2" BackgroundColor="white" Color="yellow accent-4" Dense HalfIncrements Hover Size="18" ValueChanged="OnValueChanged"></MRating>
+        </MRow>
+        <MRow>
+            Collect this book
+            <MSpacer></MSpacer>
+            @if (!_isCollected){
+                <MBottomSheet @bind-Value="_sheet" Inset>
+                    <ActivatorContent>
+                        <MButton Icon XLarge @attributes="@context.Attrs">
+                            <MIcon Color="blue-grey lighten-4">mdi-heart-outline</MIcon>
+                        </MButton>
+                    </ActivatorContent>
+                    <ChildContent>
+                         <MSheet Class="text-center overflow-auto" Style="margin: 0 auto" Height="200" @ref="_sheetRef">
+                             <CollectionList Parent="_sheetRef" ValueChanged="CollectAsync"></CollectionList>
+                         </MSheet>
+                     </ChildContent>
+                 </MBottomSheet>
+            }else{
+                <MButton Icon XLarge>
+                    <MIcon Color="pink accent-3" OnClick="CancelCollectAsync">mdi-heart</MIcon>
+                </MButton>
+            }
+        </MRow>
+    </MCardActions>
+</MCard>
+
+@code {
+    #nullable disable
+    [Parameter]
+    public string BookId { get; set; }
+
+    private MSheet _sheetRef;
+    private GetBookDetailResponse _response;
+    private bool _sheet = false;
+    private bool _isCollected;
+    private bool _isRating;
+    private StringNumber _rating = 0.0;
+    private double _totalRating;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                (var User, var Metadata) = await GetInfoAsync();
+
+                _response = await SearchBookClient.GetBookDetailAsync(new GetBookDetailRequest { Id = BookId }, Metadata);
+                var getScore = await ScoreClient.GetBookScoreAsync(new GetBookScoreRequest { BookId = BookId }, Metadata);
+                var isScore = await ScoreClient.IsScoreAsync(new IsScoreRequest { BookId = BookId, UserId = User.UserId }, Metadata);
+                var isCollected = await CollectedBookClient.IsCollectedAsync(new IsCollectedRequest { BookId = BookId, UserId = User.UserId }, Metadata);
+
+                _isCollected = isCollected.IsCollected;
+                _isRating = isScore.IsScore;
+                _rating = _isRating ? isScore.Value : getScore.TotalScore / getScore.Count;
+                _totalRating = getScore.TotalScore / getScore.Count;
+
+                StateHasChanged();
+                await PopupService.EnqueueSnackbarAsync("Load Success", AlertTypes.Success);
+            }
+            catch (Exception ex)
+            {
+                await PopupService.EnqueueSnackbarAsync(ex); 
+            }
+        }
+    }
+
+    private async Task CollectAsync(string id)
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+
+            await CollectedBookClient.UploadCollectedAsync(new UploadCollectedRequest
+            {
+                BookId = BookId,
+                CollectionId = id,
+                UserId = User.UserId
+            }, Metadata);
+
+            _sheet = !_sheet;
+            _isCollected = !_isCollected;
+            await PopupService.EnqueueSnackbarAsync("Collect Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private async Task CancelCollectAsync()
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+
+            await CollectedBookClient.DeleteCollectedAsync(new DeleteCollectedRequest { BookId = BookId, UserId = User.UserId }, Metadata);
+
+            _isCollected = !_isCollected;
+            await PopupService.EnqueueSnackbarAsync("Cancel Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private async Task DownloadAsync()
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+
+            var bytes = new List<byte>();
+            await foreach (var item in FileClient.Download(new DownloadRequest { FullFileName = _response.FileUrl }, Metadata).ResponseStream.ReadAllAsync())
+                bytes.AddRange(item.FileStream.Memory.ToArray());
+            await FileService.DownloadFileAsync(_response.FileUrl, bytes.ToArray());
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private async Task OnValueChanged(double value)
+    {
+        try
+        {
+            _rating = value;
+            (var User, var Metadata) = await GetInfoAsync();
+            if (!_isRating)
+                ScoreClient.UploadScore(new UploadScoreRequest { BookId = BookId, UserId = User.UserId, Value = value }, Metadata);
+            else
+                ScoreClient.UpdateScore(new UpdateScoreRequest { BookId = BookId, UserId = User.UserId, Value = value }, Metadata);
+            _rating = value;
+            await PopupService.EnqueueSnackbarAsync("Rating Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+}

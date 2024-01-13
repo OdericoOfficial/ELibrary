@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "Identities.Protos";
+
+package authentication;
+
+import "google/protobuf/empty.proto";
+
+service Authentication {
+  rpc SignIn (SignInRequest) returns (SignInResponse);
+  rpc Register (RegisterRequest) returns (google.protobuf.Empty);
+}
+
+message SignInRequest{
+	string Email = 1;
+	string Password = 2;
+}
+
+message SignInResponse{
+	string AccessToken = 1;
+	string UserName = 2;
+	string UserId = 3;
+}
+
+message RegisterRequest{
+	string UserName = 1;
+	string Password = 2;
+	string Eamil = 3;
+	int32 Captcha = 4;
+}

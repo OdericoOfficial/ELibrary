@@ -1,0 +1,21 @@
+﻿@inherits LayoutComponentBase
+
+<MApp>
+    <MSystemBar App
+                 Color="rgba(149, 117, 205, 0.5)">
+     </MSystemBar>
+    <MMain Style="background-image: url('https://img.zcool.cn/community/0169a96093636011013e3b7da1234a.gif'); background-size: cover; background-repeat: no-repeat;">
+         <MContainer Fluid>
+            @Body
+        </MContainer>
+    </MMain>
+    <MFooter Padless
+              Elevation="4"
+             App
+              Color="rgba(149, 117, 205, 0.5)">
+         <MSpacer></MSpacer>
+         <PBlockText Secondary="@($"Copyright © {DateTime.Now.Year} Presented by Oderico_Official, Powered by Blazor Web App, All Rights Reserved.")"
+                     SecondaryStyle="color: white"></PBlockText>
+         <MSpacer></MSpacer>
+     </MFooter>
+</MApp>

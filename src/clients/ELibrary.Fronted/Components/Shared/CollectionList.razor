@@ -1,0 +1,63 @@
+﻿@inherits AuthorizedComponentBase
+@inject Collection.CollectionClient CollectionClient
+@inject IPopupService PopupService
+@attribute [StreamRendering]
+
+<MList>
+    <MListItemGroup ValueChanged="async number => await ValueChanged.InvokeAsync(_collections[number.AsT1].Id)">
+        @foreach (var item in _collections)
+        {
+            <MListItem>
+                <MListItemContent>
+                    <MListItemTitle>@item.Name</MListItemTitle>
+                    <MListItemSubtitle>@item.Description</MListItemSubtitle>                
+                </MListItemContent>
+            </MListItem>
+            <MDivider></MDivider>
+        }
+    </MListItemGroup>
+</MList>
+<MInfiniteScroll OnLoad="@OnLoadAsync" Manual Parent="@Parent.Ref">
+</MInfiniteScroll>
+
+ @code {
+    #nullable disable
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+    [Parameter]
+    public BDomComponentBase Parent { get; set; }
+
+    private List<GetCollectionResponse> _collections = new();
+    private async Task OnLoadAsync(InfiniteScrollLoadEventArgs args)
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            var temp = new List<GetCollectionResponse>();
+            var collections = CollectionClient.GetCollection(new GetCollectionRequest
+                {
+                    Skip = _collections.Count,
+                    Take = 10,
+                    UserId = User.UserId
+                }, Metadata);
+
+            await foreach (var item in collections.ResponseStream.ReadAllAsync())
+                temp.Add(item);
+
+            if (temp.Count == 0)
+                args.Status = InfiniteScrollLoadStatus.Ok;
+            else
+            {
+                _collections.AddRange(temp);
+                args.Status = InfiniteScrollLoadStatus.Empty;
+            }
+
+            await PopupService.EnqueueSnackbarAsync("Load Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            args.Status = InfiniteScrollLoadStatus.Error;
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+}

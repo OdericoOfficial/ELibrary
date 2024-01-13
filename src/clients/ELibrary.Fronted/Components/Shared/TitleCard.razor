@@ -1,0 +1,22 @@
+﻿<MCard Height="@("250px")" Class="d-flex justify-center align-center" Style="background-color:transparent" Elevation="0">
+    <MIcon XLarge Color="blue-grey lighten-3">mdi-book-open-page-variant-outline</MIcon>
+     <MIcon Color="rgba(0, 0, 0, 0)">mdi-book-open-page-variant-outline</MIcon>
+     <Typewriter Builder="_builder" CustomClass="blue-grey--text text--lighten- text-h4 unselectable"></Typewriter>
+ </MCard>
+
+ <style>
+     .unselectable {
+         -webkit-user-select: none;
+         user-select: none;
+     }
+ </style>
+
+ @code {
+    private readonly TypewriterBuilder _builder = new TypewriterBuilder()
+        .TypeString("Simple-ELibrary")
+        .Pause(3000)
+        .DeleteAll(100)
+        .Pause(2000)
+        .Loop();
+
+ }

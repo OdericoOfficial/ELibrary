@@ -1,0 +1,2 @@
+obj\Release\net8.0/File.cs \
+obj\Release\net8.0/FileGrpc.cs: file.proto

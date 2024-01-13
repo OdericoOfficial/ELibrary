@@ -1,0 +1,15 @@
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\bin\Debug\net8.0\ModuleDistributor.Yarp.deps.json
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\bin\Debug\net8.0\ModuleDistributor.Yarp.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\bin\Debug\net8.0\ModuleDistributor.Yarp.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\bin\Debug\net8.0\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\bin\Debug\net8.0\ModuleDistributor.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.csproj.CopyComplete
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\refint\ModuleDistributor.Yarp.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ModuleDistributor.Yarp.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Yarp\obj\Debug\net8.0\ref\ModuleDistributor.Yarp.dll

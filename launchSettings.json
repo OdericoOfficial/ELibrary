@@ -1,0 +1,22 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "elibrary-api": "StartDebugging",
+        "elibrary-api-dapr": "StartWithoutDebugging",
+        "healthchecks-fronted": "StartDebugging",
+        "healthchecks-fronted-dapr": "StartWithoutDebugging",
+        "identities-api": "StartDebugging",
+        "identities-api-dapr": "StartWithoutDebugging",
+        "elibrary-fronted": "StartDebugging",
+        "elibrary-fronted-dapr": "StartWithoutDebugging",
+        "redis": "StartWithoutDebugging",
+        "sqlserver": "StartWithoutDebugging",
+        "zipkin": "StartWithoutDebugging",
+        "seq": "StartWithoutDebugging"
+      }
+    }
+  }
+}

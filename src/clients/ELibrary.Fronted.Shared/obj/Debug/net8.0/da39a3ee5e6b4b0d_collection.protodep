@@ -1,0 +1,3 @@
+obj\Debug\net8.0/Collection.cs \
+obj\Debug\net8.0/CollectionGrpc.cs: D:/NuGet/packages/grpc.tools/2.59.0/build/native/include/google/protobuf/empty.proto\
+ collection.proto

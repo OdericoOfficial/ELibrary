@@ -1,0 +1,162 @@
+﻿@page "/collections"
+@inherits AuthorizedComponentBase
+@inject Collection.CollectionClient CollectionClient
+@inject CollectedBook.CollectedBookClient CollectedBookClient
+@inject NavigationManager Navigation
+@inject IPopupService PopupService
+@attribute [StreamRendering]
+
+<PageTitle>Collections</PageTitle>
+
+<MCard MinWidth="@("800px")" Class="d-flex justify-center align-center" Elevation="4" @ref="_card">
+    <MButton Fab Color="cyan accent-2" Top Right Absolute OnClick="()=> _dialog = !_dialog">
+         <MIcon>mdi-plus</MIcon>
+     </MButton>
+    <MList>
+        @foreach (var item in _collections)
+        {
+            <MListGroup @bind-Value="item.Active" NoAction>
+                <ActivatorContent>
+                    <MListItemContent>
+                        <MListItemTitle>@item.Response.Name</MListItemTitle>
+                        <MListItemSubtitle>@item.Response.Description</MListItemSubtitle>
+                    </MListItemContent>
+                </ActivatorContent>
+                <ChildContent>
+                    <MButton Text Color="cyan accent-2" OnClick="async () => await DeleteCollectionAsync(item)">Remove</MButton>
+                    <MListItemGroup ValueChanged="number => OnValueChanged(item, number.AsT1)">
+                        @foreach (var subItem in item.Books)
+                        {
+                            <MListItem>
+                                <MListItemContent>
+                                    <MListItemTitle>@subItem.Title</MListItemTitle>
+                                </MListItemContent>
+                            </MListItem>
+                            <MDivider></MDivider>
+                        }
+                    </MListItemGroup>
+                </ChildContent>
+            </MListGroup>
+        }
+    </MList>
+    <MInfiniteScroll OnLoad="@OnLoadCollectionAsync" Manual Parent="@_card.Ref">
+    </MInfiniteScroll>
+</MCard>
+ <MDialog @bind-Value="_dialog" Width="600">
+     <ChildContent>
+         <MCard>
+             <MForm Model="_model" EnableValidation OnValidSubmit="HandleOnValidSubmitAsync">
+                 <MCardText>
+                    <MRow>
+                        <MTextField @bind-Value="_model.Name" Label="Name"></MTextField>
+                    </MRow>
+                    <MRow>
+                        <MTextField @bind-Value="_model.Description" Label="Description"></MTextField>
+                    </MRow>
+                 </MCardText>
+                 <MDivider></MDivider>
+                 <MCardActions>
+                    <MButton Color="primary" Text Type="submit">Add</MButton>
+                    <MSpacer></MSpacer>
+                    <MButton Color="primary" Text OnClick="() => _dialog = !_dialog">Close</MButton>
+                </MCardActions>
+             </MForm>
+         </MCard>
+     </ChildContent>
+ </MDialog>
+
+ @code {
+    #nullable disable
+    public class CollectionModel
+    {
+        public GetCollectionResponse Response { get; set; }
+        public bool Active { get; set; }
+        public List<GetCollectedBookResponse> Books { get; set; }
+    }
+
+    private bool _dialog = false;
+    private MCard _card;
+    private List<CollectionModel> _collections = new();
+
+    public class UploadCollectionModel
+    {
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public string Description { get; set; }
+    }
+
+    private UploadCollectionModel _model = new();
+
+    private async Task OnLoadCollectionAsync(InfiniteScrollLoadEventArgs args)
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            var temp = new List<CollectionModel>();
+            var collections = CollectionClient.GetCollection(new GetCollectionRequest
+                {
+                    Skip = _collections.Count,
+                    Take = 10,
+                    UserId = User.UserId
+                }, Metadata);
+
+            await foreach (var item in collections.ResponseStream.ReadAllAsync())
+            {
+                var books = CollectedBookClient.GetCollectedBook(new GetCollectedBookRequest { CollectionId = item.Id }, Metadata);
+                var tempBooks = new List<GetCollectedBookResponse>();
+                await foreach (var book in books.ResponseStream.ReadAllAsync())
+                    tempBooks.Add(book);
+
+                temp.Add(new CollectionModel { Books = tempBooks, Response = item });
+            }
+
+            if (temp.Count == 0)
+                args.Status = InfiniteScrollLoadStatus.Ok;
+            else
+            {
+                _collections.AddRange(temp);
+                args.Status = InfiniteScrollLoadStatus.Empty;
+            }
+
+            await PopupService.EnqueueSnackbarAsync("Load Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            args.Status = InfiniteScrollLoadStatus.Error;
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private void OnValueChanged(CollectionModel model, int index)
+        => Navigation.NavigateTo($"/detail/{model.Books[index].Title}&Id={model.Books[index].BookId}");
+
+    private async Task DeleteCollectionAsync(CollectionModel model)
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            await CollectionClient.DeleteCollectionAsync(new DeleteCollectionRequest { Id = model.Response.Id }, Metadata);
+            await PopupService.EnqueueSnackbarAsync("Delete Success", AlertTypes.Success);
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+
+    private async Task HandleOnValidSubmitAsync()
+    {
+        try
+        {
+            (var User, var Metadata) = await GetInfoAsync();
+            await CollectionClient.UploadCollectionAsync(new UploadCollectionRequest { UserId = User.UserId, UserName = User.UserName, Description = _model.Description, Name = _model.Name }, Metadata);
+            await PopupService.EnqueueSnackbarAsync("Submit Success", AlertTypes.Success);
+            _dialog = false;
+        }
+        catch (Exception ex)
+        {
+            await PopupService.EnqueueSnackbarAsync(ex);
+        }
+    }
+}

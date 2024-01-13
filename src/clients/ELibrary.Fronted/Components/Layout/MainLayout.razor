@@ -1,0 +1,100 @@
+﻿@inherits LayoutComponentBase
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager Navigation
+
+<MApp>
+    <MSystemBar App
+                 Color="deep-purple darken-3">
+         <MSpacer></MSpacer>
+         <MIcon Color="green darken-2">mdi-square</MIcon>
+         <MIcon Color="blue darken-2">mdi-circle</MIcon>
+         <MIcon Color="orange darken-2">mdi-triangle</MIcon>
+     </MSystemBar>
+     <MAppBar App
+             Dense
+              Color="deep-purple darken-1">
+         <MAppBarNavIcon @onclick="()=>_drawer = !(_drawer ?? false)"></MAppBarNavIcon>
+     </MAppBar>
+     <MNavigationDrawer @bind-Value="_drawer"
+                        Width="@("240px")"
+                              App>
+        <MSheet Color="deep-purple lighten-1"
+                Class="pa-4">
+            <MAvatar Class="mb-4"
+                     Color="grey darken-1"
+                     Size="64"></MAvatar>
+            @if (_user is not null)
+            {
+                <div>@_user.UserName</div>
+            }
+        </MSheet>
+        <MDivider></MDivider>
+        <MList>
+            @foreach (var item in _links)
+            {
+                <MListItem Link OnClick="item.OnClick">
+                     <MListItemIcon>
+                         <MIcon>@item.Icon</MIcon>
+                        </MListItemIcon>
+
+                        <MListItemContent>
+                            <MListItemTitle>@item.Text</MListItemTitle>
+                        </MListItemContent>
+                    </MListItem>
+            }
+        </MList>
+    </MNavigationDrawer>
+    <MMain>
+        <MContainer Class="py-8 px-6"
+                    Fluid>
+            <MCard Color="white"
+                   Style="width: 100vw;">
+                @Body
+            </MCard>
+        </MContainer>
+    </MMain>
+    <MFooter Padless
+              Elevation="4"
+             App
+              Color="rgba(149, 117, 205, 1)">
+         <MSpacer></MSpacer>
+         <PBlockText Secondary="@($"Copyright © {DateTime.Now.Year} Presented by Oderico_Official, Powered by Blazor Web App, All Rights Reserved.")"
+                     SecondaryStyle="color: white"></PBlockText>
+         <MSpacer></MSpacer>
+     </MFooter>
+ </MApp>
+
+ @code {
+    #nullable disable
+    private bool? _drawer = true;
+    private UserModel _user;
+    private Metadata _metadata;
+    private readonly List<(string Icon, string Text, Action OnClick)> _links = new();
+
+    protected override void OnInitialized()
+    {
+        _links.Add(("mdi-magnify", "Search", () => Navigation.NavigateTo("/search")));
+        _links.Add(("mdi-book-edit-outline", "Upload", () => Navigation.NavigateTo("/upload")));
+        _links.Add(("mdi-folder-heart-outline", "Collection", () => Navigation.NavigateTo("/collections")));
+        _links.Add(("mdi-arrow-left-thin", "SignOut", async () =>
+        {
+            await LocalStorage.RemoveItemAsync("elibrary-info");
+            Navigation.NavigateTo("/");
+        }));
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _user = await LocalStorage.GetItemAsync<UserModel>("elibrary-info");
+            if (_user is null)
+                Navigation.NavigateTo("/");
+
+            _metadata = new Metadata
+            {
+                { "Authorization", $"Bearer {_user.AccessToken}" }
+            };
+        }
+    }
+}

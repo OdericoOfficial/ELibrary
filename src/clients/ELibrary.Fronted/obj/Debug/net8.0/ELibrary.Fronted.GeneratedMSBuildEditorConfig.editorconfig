@@ -1,0 +1,103 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ELibrary.Fronted
+build_property.RootNamespace = ELibrary.Fronted
+build_property.ProjectDir = D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\aspdotnet\ELibrary\src\clients\ELibrary.Fronted
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Layout/AuthenticationLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQXV0aGVudGljYXRpb25MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Pages/BookDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCb29rRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Pages/Collections.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb2xsZWN0aW9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Pages/Search.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZWFyY2gucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Pages/Upload.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVcGxvYWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/AuthenticationCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQXV0aGVudGljYXRpb25DYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/AuthorizedComponentBase.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQXV0aG9yaXplZENvbXBvbmVudEJhc2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/BookDetailCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQm9va0RldGFpbENhcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/BookListCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQm9va0xpc3RDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/CollectionList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQ29sbGVjdGlvbkxpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/CommentCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQ29tbWVudENhcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/RegisterCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcUmVnaXN0ZXJDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/SearchCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcU2VhcmNoQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/SignInCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcU2lnbkluQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/Shared/TitleCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcVGl0bGVDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/aspdotnet/ELibrary/src/clients/ELibrary.Fronted/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 

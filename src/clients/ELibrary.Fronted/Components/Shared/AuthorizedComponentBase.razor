@@ -1,0 +1,15 @@
+﻿@inject ILocalStorageService LocalStorage
+
+@code {
+    protected async Task<(UserModel User, Metadata Metadata)> GetInfoAsync()
+    {
+        var user = await LocalStorage.GetItemAsync<UserModel>("elibrary-info");
+
+        var metadata = new Metadata
+            {
+                { "Authorization", $"Bearer {user.AccessToken}" }
+            };
+        return (user, metadata);
+    }
+
+}

@@ -1,0 +1,373 @@
+name: dockercompose8199102280076684675
+services:
+  elibrary-api:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/services/elibrary/ELibrary.API/Dockerfile
+    container_name: elibrary-api
+    depends_on:
+      redis:
+        condition: service_started
+        required: true
+      seq:
+        condition: service_started
+        required: true
+      sqlserver:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "80"
+      DaprOptions__PubSub: pubsub
+      DaprOptions__SecretStore: secretstore
+      DaprOptions__StateStore: statestore
+    image: elibraryapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "5002"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\0\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\0\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  elibrary-api-dapr:
+    command:
+      - ./daprd
+      - -app-id
+      - elibrary-api
+      - -app-port
+      - "80"
+      - -components-path
+      - /components
+      - -config
+      - /configuration/dapr-config.yaml
+    container_name: elibrary-api-dapr
+    depends_on:
+      elibrary-api:
+        condition: service_started
+        required: true
+    image: daprio/daprd:latest
+    network_mode: service:elibrary-api
+    volumes:
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\components
+        target: /components
+        bind:
+          create_host_path: true
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\configuration
+        target: /configuration
+        bind:
+          create_host_path: true
+  elibrary-fronted:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/clients/ELibrary.Fronted/ELibrary.Fronted/Dockerfile
+    container_name: elibrary-fronted
+    depends_on:
+      gateways-api:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "80"
+      DaprOptions__PubSub: pubsub
+      DaprOptions__SecretStore: secretstore
+      DaprOptions__StateStore: statestore
+    image: elibraryfronted
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "5011"
+        protocol: tcp
+  elibrary-fronted-dapr:
+    command:
+      - ./daprd
+      - -app-id
+      - elibrary-fronted
+      - -app-port
+      - "80"
+      - -components-path
+      - /components
+      - -config
+      - /configuration/dapr-config.yaml
+    container_name: elibrary-fronted-dapr
+    depends_on:
+      elibrary-fronted:
+        condition: service_started
+        required: true
+    image: daprio/daprd:latest
+    network_mode: service:elibrary-fronted
+    volumes:
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\components
+        target: /components
+        bind:
+          create_host_path: true
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\configuration
+        target: /configuration
+        bind:
+          create_host_path: true
+  gateways-api:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/services/gateways/Gateways.API/Dockerfile
+    container_name: gateways-api
+    depends_on:
+      elibrary-api:
+        condition: service_started
+        required: true
+      identities-api:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "80"
+      DaprOptions__PubSub: pubsub
+      DaprOptions__SecretStore: secretstore
+      DaprOptions__StateStore: statestore
+    image: gatewaysapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "5003"
+        protocol: tcp
+  gateways-api-dapr:
+    command:
+      - ./daprd
+      - -app-id
+      - gateways-api
+      - -app-port
+      - "80"
+      - -components-path
+      - /components
+      - -config
+      - /configuration/dapr-config.yaml
+    container_name: gateways-api-dapr
+    depends_on:
+      gateways-api:
+        condition: service_started
+        required: true
+    image: daprio/daprd:latest
+    network_mode: service:gateways-api
+    volumes:
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\components
+        target: /components
+        bind:
+          create_host_path: true
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\configuration
+        target: /configuration
+        bind:
+          create_host_path: true
+  healthchecks-fronted:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/services/healthchecks/HealthChecks.Fronted/Dockerfile
+    container_name: healthchecks-fronted
+    depends_on:
+      elibrary-api:
+        condition: service_started
+        required: true
+      elibrary-fronted:
+        condition: service_started
+        required: true
+      gateways-api:
+        condition: service_started
+        required: true
+      identities-api:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "80"
+      DaprOptions__PubSub: pubsub
+      DaprOptions__SecretStore: secretstore
+      DaprOptions__StateStore: statestore
+      HealthChecksUI__HealthChecks__1__Name: Gateways
+      HealthChecksUI__HealthChecks__1__Uri: http://gateways-api/hc
+      HealthChecksUI__HealthChecks__2__Name: HealthChecks-Fronted
+      HealthChecksUI__HealthChecks__2__Uri: http://healthchecks-fronted/hc
+    image: healthchecksfronted
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "5005"
+        protocol: tcp
+  healthchecks-fronted-dapr:
+    command:
+      - ./daprd
+      - -app-id
+      - healthchecks-fronted
+      - -app-port
+      - "80"
+      - -components-path
+      - /components
+      - -config
+      - /configuration/dapr-config.yaml
+    container_name: healthchecks-fronted-dapr
+    depends_on:
+      healthchecks-fronted:
+        condition: service_started
+        required: true
+    image: daprio/daprd:latest
+    network_mode: service:healthchecks-fronted
+    volumes:
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\components
+        target: /components
+        bind:
+          create_host_path: true
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\configuration
+        target: /configuration
+        bind:
+          create_host_path: true
+  identities-api:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/services/identities/Identities.API/Dockerfile
+    container_name: identities-api
+    depends_on:
+      redis:
+        condition: service_started
+        required: true
+      seq:
+        condition: service_started
+        required: true
+      sqlserver:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "80"
+      DaprOptions__PubSub: pubsub
+      DaprOptions__SecretStore: secretstore
+      DaprOptions__StateStore: statestore
+    image: identitiesapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "5004"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\0\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\0\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  identities-api-dapr:
+    command:
+      - ./daprd
+      - -app-id
+      - identities-api
+      - -app-port
+      - "80"
+      - -components-path
+      - /components
+      - -config
+      - /configuration/dapr-config.yaml
+    container_name: identities-api-dapr
+    depends_on:
+      identities-api:
+        condition: service_started
+        required: true
+    image: daprio/daprd:latest
+    network_mode: service:identities-api
+    volumes:
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\components
+        target: /components
+        bind:
+          create_host_path: true
+      - type: bind
+        source: D:\aspdotnet\ELibrary\dapr\configuration
+        target: /configuration
+        bind:
+          create_host_path: true
+  redis:
+    container_name: redis
+    image: redis:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 6379
+        published: "5379"
+        protocol: tcp
+  seq:
+    container_name: seq
+    environment:
+      ACCEPT_EULA: "Y"
+    image: datalust/seq:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "5341"
+        protocol: tcp
+    restart: unless-stopped
+  sqlserver:
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: JWmTjvNnRfKcjvLo0r
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1433"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: sqlserver
+        target: /var/opt/mssql
+        volume: {}
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin-slim:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 9411
+        published: "5411"
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose8199102280076684675_default
+volumes:
+  sqlserver:
+    name: dockercompose8199102280076684675_sqlserver

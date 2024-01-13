@@ -1,0 +1,3 @@
+obj\Debug\net8.0\Protos/Authentication.cs \
+obj\Debug\net8.0\Protos/AuthenticationGrpc.cs: D:/NuGet/packages/grpc.tools/2.59.0/build/native/include/google/protobuf/empty.proto\
+ Protos/authentication.proto

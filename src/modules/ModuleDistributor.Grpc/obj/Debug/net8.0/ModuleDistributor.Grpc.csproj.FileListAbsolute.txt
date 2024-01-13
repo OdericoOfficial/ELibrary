@@ -1,0 +1,15 @@
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\bin\Debug\net8.0\ModuleDistributor.Grpc.deps.json
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\bin\Debug\net8.0\ModuleDistributor.Grpc.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\bin\Debug\net8.0\ModuleDistributor.Grpc.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\bin\Debug\net8.0\ModuleDistributor.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\bin\Debug\net8.0\ModuleDistributor.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.csproj.CopyComplete
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\refint\ModuleDistributor.Grpc.dll
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ModuleDistributor.Grpc.pdb
+D:\aspdotnet\ELibrary\src\modules\ModuleDistributor.Grpc\obj\Debug\net8.0\ref\ModuleDistributor.Grpc.dll

@@ -1,0 +1,12 @@
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\bin\Debug\net8.0\HealthChecks.Fronted.Shared.deps.json
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\bin\Debug\net8.0\HealthChecks.Fronted.Shared.dll
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\bin\Debug\net8.0\HealthChecks.Fronted.Shared.pdb
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\HealthChecks.Fronted.Shared.csproj.AssemblyReference.cache
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\HealthChecks.Fronted.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\HealthChecks.Fronted.Shared.AssemblyInfoInputs.cache
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\HealthChecks.Fronted.Shared.AssemblyInfo.cs
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\HealthChecks.Fronted.Shared.csproj.CoreCompileInputs.cache
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\HealthChecks.Fronted.Shared.dll
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\refint\HealthChecks.Fronted.Shared.dll
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\HealthChecks.Fronted.Shared.pdb
+D:\aspdotnet\ELibrary\src\services\healthchecks\HealthChecks.Fronted.Shared\obj\Debug\net8.0\ref\HealthChecks.Fronted.Shared.dll

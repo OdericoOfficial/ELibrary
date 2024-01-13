@@ -1,0 +1,533 @@
+{
+  "ContentRoots": [
+    "/src/src/clients/ELibrary.Fronted/wwwroot/",
+    "/.nuget/packages/blazorcomponent/1.2.2/staticwebassets/",
+    "/.nuget/packages/masa.blazor/1.2.2/staticwebassets/",
+    "/.nuget/packages/blazortypewriter/1.1.0/staticwebassets/",
+    "/src/src/clients/ELibrary.Fronted/obj/Debug/net8.0/jsmodules/"
+  ],
+  "Root": {
+    "Children": {
+      "app.css": {
+        "Children": null,
+        "Asset": {
+          "ContentRootIndex": 0,
+          "SubPath": "app.css"
+        },
+        "Patterns": null
+      },
+      "_content": {
+        "Children": {
+          "BlazorComponent": {
+            "Children": {
+              "js": {
+                "Children": {
+                  "activatable.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/activatable.js"
+                    },
+                    "Patterns": null
+                  },
+                  "activatable.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/activatable.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "blazor-component.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/blazor-component.js"
+                    },
+                    "Patterns": null
+                  },
+                  "blazor-component.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/blazor-component.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "input.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/input.js"
+                    },
+                    "Patterns": null
+                  },
+                  "input.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/input.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "intersect.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/intersect.js"
+                    },
+                    "Patterns": null
+                  },
+                  "intersect.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/intersect.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "outside-click.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/outside-click.js"
+                    },
+                    "Patterns": null
+                  },
+                  "outside-click.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/outside-click.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "scrollStrategies.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/scrollStrategies.js"
+                    },
+                    "Patterns": null
+                  },
+                  "scrollStrategies.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/scrollStrategies.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "transition.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 1,
+                      "SubPath": "js/transition.js"
+                    },
+                    "Patterns": null
+                  }
+                },
+                "Asset": null,
+                "Patterns": null
+              }
+            },
+            "Asset": null,
+            "Patterns": null
+          },
+          "Masa.Blazor": {
+            "Children": {
+              "css": {
+                "Children": {
+                  "masa-blazor.css": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "css/masa-blazor.css"
+                    },
+                    "Patterns": null
+                  },
+                  "masa-blazor.extend.css": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "css/masa-blazor.extend.css"
+                    },
+                    "Patterns": null
+                  },
+                  "masa-blazor.min.css": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "css/masa-blazor.min.css"
+                    },
+                    "Patterns": null
+                  },
+                  "quill": {
+                    "Children": {
+                      "quill-emoji.css": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "css/quill/quill-emoji.css"
+                        },
+                        "Patterns": null
+                      },
+                      "quill.bubble.css": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "css/quill/quill.bubble.css"
+                        },
+                        "Patterns": null
+                      },
+                      "quilljs-markdown-common-style.css": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "css/quill/quilljs-markdown-common-style.css"
+                        },
+                        "Patterns": null
+                      },
+                      "quilljs-markdown-common-style.css.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "css/quill/quilljs-markdown-common-style.css.map"
+                        },
+                        "Patterns": null
+                      }
+                    },
+                    "Asset": null,
+                    "Patterns": null
+                  }
+                },
+                "Asset": null,
+                "Patterns": null
+              },
+              "images": {
+                "Children": {
+                  "quill": {
+                    "Children": {
+                      "1e7b63404cd2fb8e6525b2fd4ee4d286.png": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "images/quill/1e7b63404cd2fb8e6525b2fd4ee4d286.png"
+                        },
+                        "Patterns": null
+                      }
+                    },
+                    "Asset": null,
+                    "Patterns": null
+                  }
+                },
+                "Asset": null,
+                "Patterns": null
+              },
+              "js": {
+                "Children": {
+                  "Dragzone": {
+                    "Children": {
+                      "sorttable-helper.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/Dragzone/sorttable-helper.js"
+                        },
+                        "Patterns": null
+                      }
+                    },
+                    "Asset": null,
+                    "Patterns": null
+                  },
+                  "intersect.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "js/intersect.js"
+                    },
+                    "Patterns": null
+                  },
+                  "intersect.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "js/intersect.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "Masa.Blazor.lib.module.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "js/Masa.Blazor.lib.module.js"
+                    },
+                    "Patterns": null
+                  },
+                  "proxies": {
+                    "Children": {
+                      "baidumap-proxy.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/baidumap-proxy.js"
+                        },
+                        "Patterns": null
+                      },
+                      "baidumap-proxy.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/baidumap-proxy.js.map"
+                        },
+                        "Patterns": null
+                      },
+                      "drawflow-proxy.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/drawflow-proxy.js"
+                        },
+                        "Patterns": null
+                      },
+                      "drawflow-proxy.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/drawflow-proxy.js.map"
+                        },
+                        "Patterns": null
+                      },
+                      "echarts-proxy.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/echarts-proxy.js"
+                        },
+                        "Patterns": null
+                      },
+                      "echarts-proxy.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/echarts-proxy.js.map"
+                        },
+                        "Patterns": null
+                      },
+                      "gridstack-proxy.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/gridstack-proxy.js"
+                        },
+                        "Patterns": null
+                      },
+                      "gridstack-proxy.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/gridstack-proxy.js.map"
+                        },
+                        "Patterns": null
+                      },
+                      "markdown-it-proxy.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/markdown-it-proxy.js"
+                        },
+                        "Patterns": null
+                      },
+                      "markdown-it-proxy.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/markdown-it-proxy.js.map"
+                        },
+                        "Patterns": null
+                      },
+                      "monaco-editor-proxy.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/monaco-editor-proxy.js"
+                        },
+                        "Patterns": null
+                      },
+                      "monaco-editor-proxy.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/monaco-editor-proxy.js.map"
+                        },
+                        "Patterns": null
+                      },
+                      "swiper-proxy.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/swiper-proxy.js"
+                        },
+                        "Patterns": null
+                      },
+                      "swiper-proxy.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/proxies/swiper-proxy.js.map"
+                        },
+                        "Patterns": null
+                      }
+                    },
+                    "Asset": null,
+                    "Patterns": null
+                  },
+                  "quill": {
+                    "Children": {
+                      "quill-blot-formatter.min.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/quill/quill-blot-formatter.min.js"
+                        },
+                        "Patterns": null
+                      },
+                      "quill-emoji.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/quill/quill-emoji.js"
+                        },
+                        "Patterns": null
+                      },
+                      "quill-helper.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/quill/quill-helper.js"
+                        },
+                        "Patterns": null
+                      },
+                      "quilljs-markdown.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/quill/quilljs-markdown.js"
+                        },
+                        "Patterns": null
+                      },
+                      "quilljs-markdown.js.map": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/quill/quilljs-markdown.js.map"
+                        },
+                        "Patterns": null
+                      }
+                    },
+                    "Asset": null,
+                    "Patterns": null
+                  },
+                  "resize.js": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "js/resize.js"
+                    },
+                    "Patterns": null
+                  },
+                  "resize.js.map": {
+                    "Children": null,
+                    "Asset": {
+                      "ContentRootIndex": 2,
+                      "SubPath": "js/resize.js.map"
+                    },
+                    "Patterns": null
+                  },
+                  "vditor": {
+                    "Children": {
+                      "vditor-helper.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "js/vditor/vditor-helper.js"
+                        },
+                        "Patterns": null
+                      }
+                    },
+                    "Asset": null,
+                    "Patterns": null
+                  }
+                },
+                "Asset": null,
+                "Patterns": null
+              },
+              "logo_masablazor_48.png": {
+                "Children": null,
+                "Asset": {
+                  "ContentRootIndex": 2,
+                  "SubPath": "logo_masablazor_48.png"
+                },
+                "Patterns": null
+              },
+              "Presets": {
+                "Children": {
+                  "EllipsisText": {
+                    "Children": {
+                      "EllipsisText.razor.js": {
+                        "Children": null,
+                        "Asset": {
+                          "ContentRootIndex": 2,
+                          "SubPath": "Presets/EllipsisText/EllipsisText.razor.js"
+                        },
+                        "Patterns": null
+                      }
+                    },
+                    "Asset": null,
+                    "Patterns": null
+                  }
+                },
+                "Asset": null,
+                "Patterns": null
+              }
+            },
+            "Asset": null,
+            "Patterns": null
+          },
+          "BlazorTypewriter": {
+            "Children": {
+              "styles.css": {
+                "Children": null,
+                "Asset": {
+                  "ContentRootIndex": 3,
+                  "SubPath": "styles.css"
+                },
+                "Patterns": null
+              }
+            },
+            "Asset": null,
+            "Patterns": null
+          }
+        },
+        "Asset": null,
+        "Patterns": null
+      },
+      "ELibrary.Fronted.modules.json": {
+        "Children": null,
+        "Asset": {
+          "ContentRootIndex": 4,
+          "SubPath": "jsmodules.build.manifest.json"
+        },
+        "Patterns": null
+      }
+    },
+    "Asset": null,
+    "Patterns": [
+      {
+        "ContentRootIndex": 0,
+        "Pattern": "**",
+        "Depth": 0
+      }
+    ]
+  }
+}

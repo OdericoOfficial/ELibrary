@@ -1,0 +1,128 @@
+﻿@inherits AuthorizedComponentBase
+@inject SearchBook.SearchBookClient Client
+@inject IMapper Mapper
+@inject IPopupService PopupService
+@attribute [StreamRendering]
+
+<CascadingValue Value="_responses">
+	<MRow Class="d-flex justify-center align-center">
+		<MForm Model="_model" EnableValidation OnValidSubmit="HandleOnValidSubmitAsync">
+				<MRow Class="d-flex justify-center align-center">
+					<MCard MinWidth="@("800px")" Class="d-flex justify-center align-center" Style="background-color:transparent" Elevation="0">
+						<MTextField @bind-Value="_model.Title" Label="Title"></MTextField>
+						<MButton XLarge Icon Type="submit">
+							<MIcon Color="blue-grey lighten-3">mdi-magnify</MIcon>>
+						</MButton>
+					</MCard>
+				</MRow>
+				<MRow Class="d-flex justify-center align-center" MinWidth="250">
+					<MExpansionPanels Popout>
+					<MExpansionPanel>
+						<MExpansionPanelHeader Context="other_context">
+							<ChildContent>Additional Conditions</ChildContent>
+							<ActionsContent>
+								<MIcon Color="primary">mdi-chevron-down</MIcon>
+							</ActionsContent>
+						</MExpansionPanelHeader>
+						<MExpansionPanelContent>
+							<MRow>
+								<MCol>
+									<MTextField @bind-Value="_model.Classification" Label="Classification"></MTextField>
+								</MCol>
+								<MCol>
+									<MTextField @bind-Value="_model.Writer" Label="Author"></MTextField>
+								</MCol>
+							</MRow>
+							<MRow>
+								<MCol>
+									<MTextField @bind-Value="_model.Press" Label="Press"></MTextField>
+								</MCol>
+								<MCol>
+									<MCheckbox @bind-Value="_model.IsDesc" Label="IsDesc"></MCheckbox>
+								</MCol>
+								<MCol>
+									<MSelect @bind-Value="_model.OrderBy" Items="@_items" Label="OrderBy" ItemText="u => u" ItemValue="u => u"></MSelect>
+								</MCol>
+							</MRow>
+						</MExpansionPanelContent>
+					</MExpansionPanel>
+				</MExpansionPanels>
+			</MRow>
+		</MForm>
+	</MRow>
+	<MRow Class="d-flex justify-center align-center">
+		<BookListCard></BookListCard>
+	</MRow>
+</CascadingValue>
+
+@code {
+	#nullable disable
+	public class SearchModel
+	{
+		public bool IsDesc { get; set; } = true;
+		[Required]
+		public string Title { get; set; }
+		public string Classification { get; set; }
+		public string Press { get; set; }
+		public string Writer { get; set; }
+		public string OrderBy { get; set; } = "Score";
+	}
+
+	private readonly List<string> _items = new()
+	{
+		"Score",
+		"Recently",
+		"PublishYear"
+	};
+	private List<BookModel> _responses = new();
+	private SearchModel _model = new SearchModel();
+
+	private async Task HandleOnValidSubmitAsync()
+	{
+		try
+		{
+			(var User, var Metadata) = await GetInfoAsync();
+			_responses.Clear();
+			var request = new GetBookRequest
+				{
+					Classification = _model.Classification ?? "",
+					Title = _model.Title,
+					Press = _model.Press ?? "",
+					IsDesc = _model.IsDesc,
+					Writer = _model.Writer ?? "",
+					Language = ""
+				};
+			switch (_model.OrderBy)
+			{
+				case "PublishYear":
+					await foreach (var item in Client.GetBookOrderByPublishYear(request, Metadata).ResponseStream.ReadAllAsync())
+					{
+						var response = Mapper.Map<GetBookResponse, BookModel>(item);
+						_responses.Add(response);
+					}
+					break;
+				case "Recently":
+					await foreach (var item in Client.GetBookOrderByTime(request, Metadata).ResponseStream.ReadAllAsync())
+					{
+						var response = Mapper.Map<GetBookResponse, BookModel>(item);
+						_responses.Add(response);
+					}
+					break;
+				default:
+					await foreach (var item in Client.GetBookOrderByScore(request, Metadata).ResponseStream.ReadAllAsync())
+					{
+						var response = Mapper.Map<GetBookResponse, BookModel>(item);
+						_responses.Add(response);
+					}
+					break;
+			}
+
+			StateHasChanged();
+			await PopupService.EnqueueSnackbarAsync("Search Finish.", AlertTypes.Success);
+		}
+		catch (Exception ex)
+		{
+			await PopupService.EnqueueSnackbarAsync(ex);
+		}
+	}
+}

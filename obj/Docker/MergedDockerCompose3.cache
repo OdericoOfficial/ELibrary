@@ -1,0 +1,78 @@
+name: dockercompose8199102280076684675
+services:
+  elibrary.api:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/services/elibrary/ELibrary.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: elibraryapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\0\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\0\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  elibrary.fronted:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/clients/ELibrary.Fronted/ELibrary.Fronted/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: elibraryfronted
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+  gateways.api:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/services/gateways/Gateways.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: gatewaysapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+  healthchecks.ui:
+    build:
+      context: D:\aspdotnet\ELibrary
+      dockerfile: src/services/healthchecks/HealthChecks.UI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: healthchecksui
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose8199102280076684675_default
